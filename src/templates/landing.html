@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Welcome to Project</h1>
+<hr>
+<div>Project Desc.<br><br></div>
+<div>
+
+    {% if user.is_authenticated %}
+        <p> Logged in as {{ user.email }}</p>
+        <a class="nav" href="{% url 'logout' %}">Logout</a>
+    {% else %}
+        <a class="nav" href="{% url 'login' %}">Login</a>
+        <a class="nav" href="{% url 'register' %}">Register</a>
+    {% endif %}
+
+</div>
+
+{% endblock content %}

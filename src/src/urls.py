@@ -16,6 +16,17 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
+# path(url, views function, url pattern name (for URL reversing)
+
+from users.views import registration_view, login_view, logout_view
+from common.views import landing_view
+
+# import template view from templates
+
 urlpatterns = [
+    path('', landing_view, name='landing'),
     path('admin/', admin.site.urls),
+    path('register', registration_view, name='register'),
+    path('login', login_view, name='login'),
+    path('logout', logout_view, name='logout'),
 ]
