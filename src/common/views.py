@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from utils import search_yt
 
 # Create your views here.
 
@@ -34,3 +35,13 @@ def insert_view(request):
     else:
         print("FAIL")
     return render(request, 'entry.html')
+
+def watch_view(request):
+    context = {}
+
+    video_id = 'UmljXZIypDc'
+
+    context['vid_url'] = video_id
+    return render(request, 'common/watch.html', context)
+
+
