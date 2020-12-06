@@ -1,19 +1,107 @@
 {% extends 'base.html' %}
 
 {% block content %}
-<h1>Feed</h1>
-<div>
-    <input type="text" id="search" placeholder="Search">
-    <button type="submit" id="search-button">Submit</button>
-    <h3> NOTE FOR SELF: restrict to only top 10 results?</h3>
-    <ul>
-        {% for entry in entries %}
-            <li><a href="/feed">{{entry}}</a></li>
-        {% endfor %}
-    </ul>
-    <button>Next</button>
+<!--NAV BAR-->
+{% if user.is_authenticated %}
+<nav class="navbar navbar-light bg-light justify-content-between">
+    <a class="navbar-brand" href="/">Project Name Here</a>
+
+    <form class="form-inline">
+        <div class="input-group">
+            <input type="text" class="form-control search-size" type="search" placeholder="Search" aria-label="Search" aria-describedby="button-addon2">
+            <div class="input-group-append">
+                <button class="btn btn-outline-secondary mr-sm-2" type="submit" id="button-addon2">Search</button>
+            </div>
+        </div>
+        <button class="btn btn-outline-info my-2 my-sm-0" type="button">Filter</button>
+    </form>
+    <span>
+        <button class="btn" type="button">Log In</button>
+        <button class="btn btn-outline-secondary" type="button" href="{% url 'logout' %}">Log Out</button>
+    </span>
+</nav>
 
 
+{% else %}
+<nav class="navbar navbar-light bg-light justify-content-between">
+    <a class="navbar-brand" href="/">Project Name Here</a>
+
+    <form class="form-inline">
+        <div class="input-group">
+            <input type="text" class="form-control search-size" type="search" placeholder="Search" aria-label="Search" aria-describedby="button-addon2">
+            <div class="input-group-append">
+                <button class="btn btn-outline-secondary mr-sm-2" type="submit">Search</button>
+            </div>
+        </div>
+        <!--<button class="btn btn-outline-info my-2 my-sm-0" type="button">Filter</button>-->
+    </form>
+    <span>
+        <button class="btn" type="button" href="{% url 'login' %}">Log In</button>
+        <button class="btn btn-outline-secondary" type="button" href="{% url 'register' %}">Register</button>
+    </span>
+</nav>
+{% endif %}
+<!--NAV BAR END-->
+
+<div class="container">
+    {% for entry in entries %}
+    <a class="entry-box" href="/entry">
+    <div class="row align-items-center border rounded bg-light my-3">
+        <div class="col-2">THUMBNAIL HERE</div>
+
+        <div class="col">
+            <div class="row">
+                <div class="col">
+                    <h1 class="mb-0 mt-2">{{entry.video}}</h1>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <h2 class="mb-1">{{entry.teacher}}</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <h2 class="mb-2">
+                        {% if 4 < entry.stars and entry.stars <= 5 %}
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                            {% elif 3 < entry.stars and entry.stars <= 4 %}
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star "></span>
+                            {% elif 2 < entry.stars and entry.stars <= 3 %}
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star "></span>
+                                <span class="fa fa-star "></span>
+                            {% elif 1 < entry.stars and entry.stars <= 2 %}
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star "></span>
+                                <span class="fa fa-star "></span>
+                                <span class="fa fa-star "></span>
+                            {% else %}
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star "></span>
+                                <span class="fa fa-star "></span>
+                                <span class="fa fa-star "></span>
+                                <span class="fa fa-star "></span>
+                            {% endif %}
+                            {{entry.stars}} stars
+                    </h2>
+                </div>
+            </div>
+        </div>
+    </div>
+    </a>
+    {% endfor %}
 
 </div>
 

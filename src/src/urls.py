@@ -19,17 +19,18 @@ from django.urls import path
 # path(url, views function, url pattern name (for URL reversing)
 
 from users.views import registration_view, login_view, logout_view
-from common.views import landing_view, feed_view, entry_view, watch_view
+from common.views import landing_view, feed_view, entry_view, insert_view, watch_view
 
 # import template view from templates
 
 urlpatterns = [
     path('', landing_view, name='landing'),
-    path('feed', feed_view, name='feed'),
+    path('/feed', feed_view, name='feed'),
     path('entry', entry_view, name='entry'),
     path('admin/', admin.site.urls),
     path('register', registration_view, name='register'),
     path('login', login_view, name='login'),
     path('logout', logout_view, name='logout'),
+    path('insert', insert_view, name='insert')
     path('watch', watch_view, name='watch'),
 ]

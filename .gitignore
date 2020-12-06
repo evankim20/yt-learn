@@ -1,3 +1,5 @@
+.DS_STORE
+*.pyc
 youtube_data/config/creds.ini
 
 *.pyc
