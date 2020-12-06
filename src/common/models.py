@@ -12,6 +12,7 @@ class Video(models.Model):
     like_count = models.IntegerField()
     dislike_count = models.IntegerField()
     channel = models.CharField(max_length=40)
+    sentiment_score = models.FloatField()
 
     # what django shows on backend
     BEGINNER = 'Beginner'

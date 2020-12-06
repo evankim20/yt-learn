@@ -10,3 +10,6 @@ def youtube_search(search_query, num_videos):
   result = json.loads(search)
   videos = result['search_result']
   pprint(videos)
+
+
+youtube_search("react tutorials",5)
