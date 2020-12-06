@@ -3,6 +3,7 @@
   <a class="navbar-brand" href="/">Project Name Here</a>
 
   <form class="form-inline" action="/search" method="post">
+    {% csrf_token %}
     <div class="input-group">
       <input
         type="text"
@@ -11,6 +12,7 @@
         placeholder="Search"
         aria-label="Search"
         aria-describedby="button-addon2"
+        name="search_query"
       />
       <div class="input-group-append">
         <button class="btn btn-outline-secondary mr-sm-2" type="submit"
@@ -33,6 +35,7 @@
   <a class="navbar-brand" href="/">Project Name Here</a>
 
   <form class="form-inline" action="/search" method="post">
+    {% csrf_token %}
     <div class="input-group">
       <input
         type="text"
@@ -41,6 +44,7 @@
         placeholder="Search"
         aria-label="Search"
         aria-describedby="button-addon2"
+        name="search_query"
       />
       <div class="input-group-append">
         <button class="btn btn-outline-secondary mr-sm-2" type="submit">

@@ -25,18 +25,6 @@ class Video(models.Model):
         (ADVANCED,'Advanced'),
     )
 
-    '''
-    POSITIVE =
-    NEGATIVE = 
-    NEUTRAL = 
-    
-    SENTIMENT_CHOICES = (
-        (POSITIVE, ),
-        (NEGATIVE, ),
-        (NEUTRAL, ),
-    )
-    '''
-
 
     # data from our users
     skill_level = models.CharField(max_length=15, choices=SKILL_CHOICES, default=BEGINNER)

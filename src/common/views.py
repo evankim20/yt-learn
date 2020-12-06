@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
-from .utils import search_yt
-
+# from .utils import search_yt
+from youtube_data.search import youtube_search
 # Create your views here.
 
 def landing_view(request):
@@ -40,7 +40,8 @@ def insert_view(request):
 def search_view(request):
     if request.POST:
         search_query = request.POST.get('search_query')
-        print(search_query)
+
+        youtube_search(search_query, 5)
 
         # TODO: run search algorithm and return the list of video objects
         # get youtube search
