@@ -106,52 +106,61 @@
     </div>
 
     <div class="border bg-light rounded my-3">
+        <form action="/insert" method="post">
+            {% csrf_token %}
+
         <div class="row">
             <div class="col-3 my-3">
-                <div class="row ml-1 d-flex justify-content-center">
-                    Video Rating
-                </div>
-                <br>
-                <div class="row d-flex justify-content-center ml-1">
-                    <div class="form-group">
-                    <select class="form-control " id="FormControlSelect1">
-                  <option>1</option>
-                  <option>2</option>
-                  <option>3</option>
-                  <option>4</option>
-                  <option>5</option>
-                </select>
-                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <div class="panel-title d-flex justify-content-center">Video Rating</div>
+                    </div>
+                    <div class="panel-body">
+                        <br>
+                        <div class="form-group ml-3">
+                            <select class="form-control" name="videorating" id="FormControlSelect1">
+                              <option>1</option>
+                              <option>2</option>
+                              <option>3</option>
+                              <option>4</option>
+                              <option>5</option>
+                            </select>
+                        </div>
+                    </div>
                 </div>
             </div>
+
             <div class="col-3 my-3">
-                <div class="row d-flex justify-content-center">
-                    Teacher Rating
-                </div>
-                <br>
-                <div class="row d-flex justify-content-center">
-                    <div class="form-group">
-                    <select class="form-control" id="FormControlSelect2">
-                  <option>1</option>
-                  <option>2</option>
-                  <option>3</option>
-                  <option>4</option>
-                  <option>5</option>
-                </select>
-                </div>
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <div class="panel-title d-flex justify-content-center">Teacher Rating</div>
+                    </div>
+                    <div class="panel-body">
+                        <br>
+                        <div class="form-group ml-2">
+                            <select class="form-control" name="teacherrating" id="FormControlSelect2">
+                              <option>1</option>
+                              <option>2</option>
+                              <option>3</option>
+                              <option>4</option>
+                              <option>5</option>
+                            </select>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="col my-3">
                 <div class="form-group mr-3 mb-1">
                     <label for="exampleFormControlTextarea1">Your Review</label>
-                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Start your review"></textarea>
+                    <textarea class="form-control" name="review" id="exampleFormControlTextarea1" rows="3" placeholder="Start your review" required></textarea>
                 </div>
             </div>
         </div>
 
         <div class="d-flex justify-content-center">
-            <div class="btn btn-success mb-3" type="button">Submit</div>
+            <button class="btn btn-success mb-3" type="submit">Submit</button>
         </div>
+        </form>
     </div>
 
 

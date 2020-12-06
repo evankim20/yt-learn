@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
 # Create your views here.
 
@@ -19,3 +19,18 @@ def entry_view(request):
                'reviews': [{'name': 'Bob', 'stars': 4, 'response': 'Great video!'}, {'name': 'Alice', 'stars': 1, 'response': 'Video sucked'},
                            {'name': 'Karen', 'stars': 3, 'response': 'meh'}]}
     return render(request, 'entry.html', context)
+
+"""
+insert_view handles the form POST request
+"""
+def insert_view(request):
+    if request.POST:
+        video_rating = request.POST.get('videorating')
+        teacher_rating = request.POST.get('teacherrating')
+        review = request.POST.get('review')
+        # TODO: post to db and then redirect w/ updated info! (just grab from db again)
+        print(f'Stuff: {video_rating}, {teacher_rating}, {review}')
+        return redirect('entry')
+    else:
+        print("FAIL")
+    return render(request, 'entry.html')
