@@ -1,0 +1,32 @@
+.search-size{
+    width: 300px !important;
+}
+
+.video-size{
+    width: 80% !important;
+}
+
+
+.entry-box:link,
+.entry-box:visited {
+    text-decoration: none;
+    color: black !important;
+}
+
+.back-button:link,
+.back-button:visited {
+    text-decoration: none;
+    color: black !important;
+}
+
+.back-button:hover {
+    opacity: 0.5;
+}
+
+.checked {
+  color: orange !important;
+}
+
+.input:focus{
+    outline: none;
+}
