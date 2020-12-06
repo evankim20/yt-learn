@@ -1,4 +1,5 @@
 from django.shortcuts import render
+from utils import search_yt
 
 # Create your views here.
 
@@ -23,3 +24,5 @@ def watch_view(request):
 
     context['vid_url'] = video_id
     return render(request, 'common/watch.html', context)
+
+
