@@ -1,5 +1,5 @@
 from googleapiclient.discovery import build
-from sentiment_analysis import sentiment_score
+from .sentiment_analysis import sentiment_score
 from text_preprocessing import preprocess_text
 import preprocessor as p
 import configparser
@@ -12,7 +12,7 @@ import os
 #constants
 API_SERVICE = 'youtube'
 API_VERSION = 'v3'
-MAX_COMMENTS = 400
+MAX_COMMENTS = 200
 CONFIG_FILE = 'creds.ini' 
 
 #read api key from creds.ini
@@ -23,6 +23,7 @@ config = configparser.ConfigParser()
 config.read(config_file_path)
 API_KEY = config['youtube']['API_KEY']
 
+youtube = build('youtube','v3', developerKey=API_KEY)
 
 def add_comments(result_items, comments):
     """ helper function to add comment text to our comment list """
@@ -82,20 +83,3 @@ def get_statistics(youtube, video_id):
     return (like_count, dislike_count, total_views)
 
 
-def get_video_id(url):
-    """ get the video id from a given url (video id are 11 char)""" 
-
-    id_index = url.index("v") + 2
-    return url[id_index : id_index + 11]
-
-if __name__ == "__main__":
-    youtube = build('youtube','v3', developerKey=API_KEY)
-    
-    video_url = "https://www.youtube.com/watch?v=HPJKxAhLw5I"
-    video_id = get_video_id(video_url)
-
-
-    comments = get_comments(youtube, video_id)
-
-    comments_df = pd.DataFrame(comments, columns = ['comments'])
-    sentiment_score = sentiment_score(comments_df)

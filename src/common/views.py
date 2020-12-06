@@ -1,6 +1,12 @@
 from django.shortcuts import render, redirect
-# from .utils import search_yt
-from youtube_data.search import youtube_search
+from youtube_data.search import get_video_data
+from youtube_data import sentiment_analysis
+from youtube_data import video_data
+from .models import Video
+import pandas as pd
+# import youtube_data.video_data
+# import youtube_data.sentiment_analysis
+
 # Create your views here.
 
 def landing_view(request):
@@ -39,9 +45,32 @@ def insert_view(request):
 
 def search_view(request):
     if request.POST:
+        video_list = []
         search_query = request.POST.get('search_query')
+        print(search_query)
+        search_results = get_video_data(search_query, 2)
 
-        youtube_search(search_query, 5)
+        for search_result in search_results:
+            # video_db_res = Video.objects.filter(video_id = search_result.id)
+            # if(not video_db_res):
+            video_id = search_result.id
+            comments = video_data.get_comments(video_data.youtube, video_id)
+            comments_df = pd.DataFrame(comments, columns = ['comments'])
+            sentiment = sentiment_analysis.sentiment_score(comments_df)
+            like_count, dislike_count, total_views = video_data.get_statistics(video_data.youtube, video_id)
+
+
+            new_vid = Video(
+                video_id, 
+                search_result.title,
+                total_views, 
+                like_count, 
+                dislike_count,
+                search_result.channel,
+                search_result.thumbnail,
+                sentiment
+            )
+            video_list.append(new_vid)
 
         # TODO: run search algorithm and return the list of video objects
         # get youtube search
@@ -49,7 +78,7 @@ def search_view(request):
         # put into context.videos
 
         # TODO: assign fake star ratings
-        context = {'videos': []}
+        context = {'entries': video_list}
 
         return render(request, 'feed.html', context)
 

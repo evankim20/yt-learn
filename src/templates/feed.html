@@ -70,19 +70,26 @@
 
 <div class="container">
   {% for entry in entries %}
+
   <a class="entry-box" href="/entry">
     <div class="row align-items-center border rounded bg-light my-3">
-      <div class="col-2">THUMBNAIL HERE</div>
-
+      <div class="col-2">
+        <img src="{{entry.thumbnail}}" alt="">
       <div class="col">
+
         <div class="row">
           <div class="col">
-            <h1 class="mb-0 mt-2">{{entry.video}}</h1>
+            <h3 class="mb-0 mt-2">Sentiment: {{entry.sentiment_score}}</h1>
           </div>
         </div>
         <div class="row">
           <div class="col">
-            <h2 class="mb-1">{{entry.teacher}}</h2>
+            <h1 class="mb-0 mt-2">{{entry.title}}</h1>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col">
+            <h2 class="mb-1">{{entry.channel}}</h2>
           </div>
         </div>
         <div class="row">
