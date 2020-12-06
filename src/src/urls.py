@@ -31,6 +31,6 @@ urlpatterns = [
     path('register', registration_view, name='register'),
     path('login', login_view, name='login'),
     path('logout', logout_view, name='logout'),
-    path('insert', insert_view, name='insert')
+    path('insert', insert_view, name='insert'),
     path('watch', watch_view, name='watch'),
 ]

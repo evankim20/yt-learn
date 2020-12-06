@@ -1,5 +1,5 @@
 from django.shortcuts import render, redirect
-from utils import search_yt
+from .utils import search_yt
 
 # Create your views here.
 
