@@ -24,8 +24,8 @@ from common.views import landing_view, feed_view, entry_view
 # import template view from templates
 
 urlpatterns = [
-    path('', landing_view, name='landing'),
-    path('feed', feed_view, name='feed'),
+    # path('', landing_view, name='landing'),
+    path('', feed_view, name='feed'),
     path('entry', entry_view, name='entry'),
     path('admin/', admin.site.urls),
     path('register', registration_view, name='register'),
