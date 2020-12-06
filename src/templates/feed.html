@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Feed</h1>
+<div>
+    <input type="text" id="search" placeholder="Search">
+    <button type="submit" id="search-button">Submit</button>
+    <h3> NOTE FOR SELF: restrict to only top 10 results?</h3>
+    <ul>
+        {% for entry in entries %}
+            <li><a href="/feed">{{entry}}</a></li>
+        {% endfor %}
+    </ul>
+    <button>Next</button>
+
+
+
+</div>
+
+{% endblock content %}

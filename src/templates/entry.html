@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h1>Entry</h1>
+<div>
+    <input type="text" id="search" placeholder="Search">
+    <button type="submit" id="search-button">Submit</button>
+
+    <button>Back</button>
+    <h2>VIDEO NAME</h2>
+    <a>video link</a>
+    <h3>Leave a Review </h3>
+    <input type="text" id="review-text" placeholder="Search">
+    <button type="submit" id="submit-review-button">Submit</button>
+
+
+    <ul>
+        {% for review in reviews %}
+            <li><a href="/feed">
+                <div class="rating"><span>☆</span><span>☆</span><span>☆</span><span>☆</span><span>☆</span></div>
+                {{review}}</a>
+            </li>
+        {% endfor %}
+    </ul>
+
+
+</div>
+
+{% endblock content %}
