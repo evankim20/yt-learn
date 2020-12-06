@@ -4,7 +4,7 @@
 <nav class="navbar navbar-light bg-light justify-content-between">
   <a class="navbar-brand" href="/">Project Name Here</a>
 
-  <form class="form-inline">
+  <form class="form-inline" action="/search" method="post">
     <div class="input-group">
       <input
         type="text"
@@ -25,13 +25,9 @@
     </div>
   </form>
   <span>
-    <button
-      class="btn btn-outline-secondary"
-      type="button"
-      href="{% url 'logout' %}"
-    >
+    <a class="btn btn-outline-secondary" type="button" href="logout">
       Log Out
-    </button>
+    </a>
   </span>
 </nav>
 
@@ -39,7 +35,7 @@
 <nav class="navbar navbar-light bg-light justify-content-between">
   <a class="navbar-brand" href="/">Project Name Here</a>
 
-  <form class="form-inline">
+  <form class="form-inline" action="/search" method="post">
     <div class="input-group">
       <input
         type="text"
@@ -62,13 +58,9 @@
   </form>
   <span>
     <button class="btn" type="button" href="{% url 'login' %}">Log In</button>
-    <button
-      class="btn btn-outline-secondary"
-      type="button"
-      href="{% url 'register' %}"
-    >
+    <a class="btn btn-outline-secondary" type="button" href="register">
       Register
-    </button>
+    </a>
   </span>
 </nav>
 {% endif %}
