@@ -1,6 +1,7 @@
 {% extends 'base.html' %} {% block content %} {% if user.is_authenticated %}
 <nav class="navbar navbar-light bg-light justify-content-between">
   <a class="navbar-brand" href="/">Project Name Here</a>
+<<<<<<< HEAD
 
   <form class="form-inline" action="/search" method="post">
     {% csrf_token %}
@@ -23,6 +24,8 @@
       </div>
     </div>
   </form>
+=======
+>>>>>>> 6f43aeb0a632c47391dbf680d3ed69ef6b73bde8
   <span>
     <a class="btn btn-outline-secondary" type="button" href="logout">
       Log Out
@@ -67,20 +70,29 @@
 <!--Hero image & search bar-->
 <div class="row h-50 bg-info justify-content-center">
   <div class="col-md-6 d-flex align-items-end m-5">
-    <div class="input-group input-group-lg">
-      <input
-        type="text"
-        class="form-control"
-        placeholder="Search Videos"
-        aria-label="Sizing example input"
-        aria-describedby="inputGroup-sizing-lg"
-      />
-      <div class="input-group-append">
-        <button class="btn btn-warning" id="inputGroup-sizing-lg">
-          Search
-        </button>
+    <form class="form-inline" action="/search" method="post">
+      {% csrf_token %}
+      <div class="input-group input-group-lg">
+        <input
+          type="text"
+          class="form-control search-size"
+          type="search"
+          placeholder="Search"
+          aria-label="Search"
+          aria-describedby="button-addon2"
+          name="search_query"
+        />
+        <div class="input-group-append">
+          <button
+            class="btn btn-warning"
+            id="inputGroup-sizing-lg"
+            type="submit"
+          >
+            Search
+          </button>
+        </div>
       </div>
-    </div>
+    </form>
   </div>
 </div>
 
