@@ -15,3 +15,11 @@ def entry_view(request):
     temp_list = ["Review 1", "Review 2", "Review 3"]
     context = {'reviews': temp_list}
     return render(request, 'entry.html', context)
+
+def watch_view(request):
+    context = {}
+
+    video_id = 'UmljXZIypDc'
+
+    context['vid_url'] = video_id
+    return render(request, 'common/watch.html', context)
