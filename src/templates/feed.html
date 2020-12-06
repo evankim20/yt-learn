@@ -62,7 +62,40 @@
             </div>
             <div class="row">
                 <div class="col">
-                    <h2 class="mb-2">{{entry.stars}}</h2>
+                    <h2 class="mb-2">
+                        {% if 4 < entry.stars and entry.stars <= 5 %}
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                            {% elif 3 < entry.stars and entry.stars <= 4 %}
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star "></span>
+                            {% elif 2 < entry.stars and entry.stars <= 3 %}
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star "></span>
+                                <span class="fa fa-star "></span>
+                            {% elif 1 < entry.stars and entry.stars <= 2 %}
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star "></span>
+                                <span class="fa fa-star "></span>
+                                <span class="fa fa-star "></span>
+                            {% else %}
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star "></span>
+                                <span class="fa fa-star "></span>
+                                <span class="fa fa-star "></span>
+                                <span class="fa fa-star "></span>
+                            {% endif %}
+                            {{entry.stars}} stars
+                    </h2>
                 </div>
             </div>
         </div>

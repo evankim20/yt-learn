@@ -43,7 +43,7 @@
 
 
 <div class="container">
-    <a class="back-button mt-3" href="/feed">Back</a>
+    <!--<a class="back-button mt-3" href="/feed">Back</a>-->
     <div class="border bg-light rounded my-3">
         <center>
         <div class="embed-responsive embed-responsive-16by9 col-xs-12 text-center video-size mt-3">
@@ -65,7 +65,40 @@
                 </div>
                 <div class="row">
                     <div class="col">
-                        <h3 class="mb-0 ml-3">{{video.stars}}</h3>
+                        <h3 class="mb-0 ml-3">
+                            {% if 4 < video.stars and video.stars <= 5 %}
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                            {% elif 3 < video.stars and video.stars <= 4 %}
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star "></span>
+                            {% elif 2 < video.stars and video.stars <= 3 %}
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star "></span>
+                                <span class="fa fa-star "></span>
+                            {% elif 1 < video.stars and video.stars <= 2 %}
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star "></span>
+                                <span class="fa fa-star "></span>
+                                <span class="fa fa-star "></span>
+                            {% else %}
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star "></span>
+                                <span class="fa fa-star "></span>
+                                <span class="fa fa-star "></span>
+                                <span class="fa fa-star "></span>
+                            {% endif %}
+                            {{video.stars}} stars
+                        </h3>
                     </div>
                 </div>
             </div>
@@ -78,16 +111,34 @@
                 <div class="row ml-1 d-flex justify-content-center">
                     Video Rating
                 </div>
-                <div class="row d-flex justify-content-center">
-                    Video Rating
+                <br>
+                <div class="row d-flex justify-content-center ml-1">
+                    <div class="form-group">
+                    <select class="form-control " id="FormControlSelect1">
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                  <option>5</option>
+                </select>
+                </div>
                 </div>
             </div>
             <div class="col-3 my-3">
                 <div class="row d-flex justify-content-center">
                     Teacher Rating
                 </div>
+                <br>
                 <div class="row d-flex justify-content-center">
-                    Teacher Rating
+                    <div class="form-group">
+                    <select class="form-control" id="FormControlSelect2">
+                  <option>1</option>
+                  <option>2</option>
+                  <option>3</option>
+                  <option>4</option>
+                  <option>5</option>
+                </select>
+                </div>
                 </div>
             </div>
             <div class="col my-3">
@@ -119,7 +170,40 @@
             </div>
             <div class="row">
                 <div class="col">
-                    <h3 class="mb-2 ml-4">{{review.stars}}</h3>
+                    <h3 class="mb-2 ml-4">
+                            {% if 4 < review.stars and review.stars <= 5 %}
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                            {% elif 3 < review.stars and review.stars <= 4 %}
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star "></span>
+                            {% elif 2 < review.stars and review.stars <= 3 %}
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star "></span>
+                                <span class="fa fa-star "></span>
+                            {% elif 1 < review.stars and review.stars <= 2 %}
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star "></span>
+                                <span class="fa fa-star "></span>
+                                <span class="fa fa-star "></span>
+                            {% else %}
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star "></span>
+                                <span class="fa fa-star "></span>
+                                <span class="fa fa-star "></span>
+                                <span class="fa fa-star "></span>
+                            {% endif %}
+                            {{review.stars}} stars
+                    </h3>
                 </div>
             </div>
             <div class="row">
