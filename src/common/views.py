@@ -29,12 +29,27 @@ def insert_view(request):
         video_rating = request.POST.get('videorating')
         teacher_rating = request.POST.get('teacherrating')
         review = request.POST.get('review')
+
         # TODO: post to db and then redirect w/ updated info! (just grab from db again)
         print(f'Stuff: {video_rating}, {teacher_rating}, {review}')
         return redirect('entry')
     else:
         print("FAIL")
     return render(request, 'entry.html')
+
+def search_view(request):
+    if request.POST:
+        search_query = request.POST.get('search_query')
+
+        # TODO: run search algorithm and return the list of video objects
+        # get youtube search
+        # create video object
+        # put into context.videos
+
+        # TODO: assign fake star ratings
+        context = {'videos': []}
+
+        return render(request, 'feed.html', context)
 
 def watch_view(request):
     context = {}

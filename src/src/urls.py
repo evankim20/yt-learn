@@ -25,7 +25,7 @@ from common.views import landing_view, feed_view, entry_view, insert_view, watch
 
 urlpatterns = [
     path('', landing_view, name='landing'),
-    path('/feed', feed_view, name='feed'),
+    path('feed', feed_view, name='feed'),
     path('entry', entry_view, name='entry'),
     path('admin/', admin.site.urls),
     path('register', registration_view, name='register'),
