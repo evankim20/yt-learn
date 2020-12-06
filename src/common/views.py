@@ -40,6 +40,7 @@ def insert_view(request):
 def search_view(request):
     if request.POST:
         search_query = request.POST.get('search_query')
+        print(search_query)
 
         # TODO: run search algorithm and return the list of video objects
         # get youtube search
