@@ -1,3 +1,23 @@
 # Default ignored files
 /shelf/
 /workspace.xml
+
+.DS_STORE
+*.pyc
+
+/youtube_data/creds.ini
+
+
+
+*.pyc
+__pycache__/
+
+instance/
+
+.pytest_cache/
+.coverage
+htmlcov/
+
+dist/
+build/
+*.egg-info/

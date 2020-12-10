@@ -4,27 +4,24 @@ from django.db import models
 
 
 class Video(models.Model):
-
-    video_id = models.CharField(max_length=15)
-    title = models.CharField(max_length=70)
+    video_id = models.CharField(max_length=15, primary_key=True)
+    title = models.CharField(max_length=70, unique=True)
     view_count = models.IntegerField()
     like_count = models.IntegerField()
     dislike_count = models.IntegerField()
-    channel = models.CharField(max_length=40) #we want this to point to a channel
+
+    # we want this to point to a channel
+    channel = models.CharField(max_length=40)
     thumbnail = models.CharField(max_length=70)
     sentiment_score = models.FloatField()
 
-    def __init__(self, video_id, title, view_count, like_count, dislike_count, channel, thumbnail, sentiment_score):
-        super().__init__(video_id, title, view_count, like_count, dislike_count, channel, thumbnail, sentiment_score)
-        self.video_id = video_id
-        self.title = title
-        self.view_count = view_count
-        self.like_count = like_count
-        self.dislike_count = dislike_count
-        self.channel = channel #we want this to point to a channel
-        self.thumbnail = thumbnail
-        self.sentiment_score = sentiment_score
+    def __str__(self):
+        return self.title
 
+
+class Channel(models.Model):
+    channel_id = models.CharField(max_length=24, primary_key=True)
+    name = models.CharField(max_length=20, unique=True)
 
     # # what django shows on backend
     # BEGINNER = 'Beginner'
@@ -36,9 +33,5 @@ class Video(models.Model):
     #     (ADVANCED,'Advanced'),
     # )
 
-
     # # data from our users
     # skill_level = models.CharField(max_length=15, choices=SKILL_CHOICES, default=BEGINNER)
-
-
-

@@ -1,31 +1,6 @@
 {% extends 'base.html' %} {% block content %} {% if user.is_authenticated %}
 <nav class="navbar navbar-light bg-light justify-content-between">
-  <a class="navbar-brand" href="/">Project Name Here</a>
-<<<<<<< HEAD
-
-  <form class="form-inline" action="/search" method="post">
-    {% csrf_token %}
-    <div class="input-group">
-      <input
-        type="text"
-        class="form-control search-size"
-        type="search"
-        placeholder="Search"
-        aria-label="Search"
-        aria-describedby="button-addon2"
-        name="search_query"
-      />
-      <div class="input-group-append">
-        <button class="btn btn-outline-secondary mr-sm-2" type="submit"
-          id="button-addon2"
-        >
-          Search
-        </button>
-      </div>
-    </div>
-  </form>
-=======
->>>>>>> 6f43aeb0a632c47391dbf680d3ed69ef6b73bde8
+  <a class="navbar-brand" href="/">yt-learn</a>
   <span>
     <a class="btn btn-outline-secondary" type="button" href="logout">
       Log Out
