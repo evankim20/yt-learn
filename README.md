@@ -5,10 +5,10 @@ Goal: With so much free content on youtube, it often the primary resource to lea
 
 ## Tech Stack
 
-Front-End: HTML, CSS, Bootstrap
-Back-End: Django, SQLite
-APIs: Youtube API,
-ML: Sentiment Analysis with Textblob
+Front-End: HTML, CSS, Bootstrap <br/>
+Back-End: Django, SQLite <br/>
+APIs: Youtube API, Google Search Python Package <br/>
+ML: Sentiment Analysis with Textblob <br/>
 
 ## Team
 
